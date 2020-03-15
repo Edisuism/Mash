@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class gameController : MonoBehaviour
 {
+    AudioSource audio;
     GameObject player1;
     GameObject player2;
     Text win;
@@ -20,6 +21,7 @@ public class gameController : MonoBehaviour
         lose = GameObject.Find("lose").GetComponent<Text>();
         win.enabled = false;
         lose.enabled = false;
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,8 +33,7 @@ public class gameController : MonoBehaviour
             Time.timeScale = 1;
             player1.GetComponent<playerMovement>().enabled = true;
             player2.GetComponent<playerMovement>().enabled = true;
-            // set player score to 0;
-            // set player carry to 0;
+            audio.enabled = true;
 
         }
 
@@ -48,6 +49,7 @@ public class gameController : MonoBehaviour
             }
             player1.GetComponent<playerMovement>().enabled = false;
             player2.GetComponent<playerMovement>().enabled = false;
+            audio.enabled = false;
             
         }
 

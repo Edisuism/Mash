@@ -13,13 +13,17 @@ public class playerMovement : MonoBehaviour
 
     private SpriteRenderer sprite;
     public int score = 0;
-    private int carry = 0;
-    
+    public int carry = 0;
+    public AudioClip pickup;
+    public AudioClip rescue;
+    public AudioClip death;
+    AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -53,6 +57,8 @@ public class playerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("obstacle"))
         {
             Time.timeScale = 0;
+            audio.clip = death;
+            audio.Play();
 
         }
         else if (collision.gameObject.CompareTag("soldier"))
@@ -61,6 +67,8 @@ public class playerMovement : MonoBehaviour
             {
                 carry++;
                 collision.gameObject.SetActive(false);
+                audio.clip = pickup;
+                audio.Play();
             }
             
         }
@@ -70,6 +78,8 @@ public class playerMovement : MonoBehaviour
             {
                 score += carry;
                 carry = 0;
+                audio.clip = rescue;
+                audio.Play();
             }
             
         }
@@ -79,6 +89,8 @@ public class playerMovement : MonoBehaviour
             {
                 score += carry;
                 carry = 0;
+                audio.clip = rescue;
+                audio.Play();
             }
 
         }

@@ -16,6 +16,6 @@ public class score1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Player 1 Score: " + target.GetComponent<playerMovement>().score;
+        scoreText.text = "Soldiers Rescued: " + target.GetComponent<playerMovement>().score + "\n" + "Soldiers in Helicopter: " + target.GetComponent<playerMovement>().carry;
     }
 }
