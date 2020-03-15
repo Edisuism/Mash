@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - soldier
+  - obstacle
+  - hospital
+  - hospital2
+  - helicopter1
+  - helicopter2
   layers:
   - Default
   - TransparentFX
